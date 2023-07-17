@@ -14,7 +14,7 @@ enum ParsingState {
 export interface Options {
   /** Flag to set if your response does not contain a preamble and starts with the first part immediately, without a boundary string */
   rfcViolationNoFirstBoundary: boolean;
-  /** Flag to set if the Content-Type header already contains  */
+  /** Flag to set if the boundary in the Content-Type header already contains double-dash prefix and parser should not add it again */
   rfcViolationNoBoundaryPrefix: boolean;
 }
 

@@ -120,7 +120,7 @@ User-supplied parser configuration
 
 • **rfcViolationNoBoundaryPrefix**: `boolean`
 
-Flag to set if the Content-Type header already contains
+Flag to set if the boundary in the Content-Type header already contains double-dash prefix and parser should not add it again
 
 • **rfcViolationNoFirstBoundary**: `boolean`
 
