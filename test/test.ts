@@ -10,6 +10,7 @@ const textEncoder = new TextEncoder();
 const correctDump = textEncoder.encode(readFileSync(`${__dirname}/test1.multipart`, 'utf-8'));
 const correctDumpResponse = new Response(correctDump, {headers: {"Content-Type": `multipart/mixed; boundary=${boundary}`}});
 const rfcViolationDump = textEncoder.encode(readFileSync(`${__dirname}/test2.multipart`, 'utf-8'));
+const plainDump = textEncoder.encode(readFileSync(`${__dirname}/test3.multipart`, 'utf-8'));
 
 const textDecoder = new TextDecoder();
 
@@ -50,6 +51,19 @@ test("parse (RFC violation)", async () => {
 
   assert.strictEqual(textDecoder.decode(preamble), "");
   assert.strictEqual(textDecoder.decode(epilogue), "\r\nepilogue");
+});
+
+test("parse (no preamble nor epilogue)", async () => {
+  let {bodyParts, preamble, epilogue} = parse(plainDump, boundary);
+
+  assert.strictEqual(bodyParts.length, 2);
+  assert.strictEqual(bodyParts[0].headers.get("Content-Type"), "text/plain");
+  assert.strictEqual(await bodyParts[0].text(), "Hello everyone!💜");
+  assert.strictEqual(bodyParts[1].headers.get("Content-Type"), "application/json");
+  assert.deepStrictEqual(await bodyParts[1].json(), {"this": ["is", {"a": "test"}]});
+
+  assert.strictEqual(textDecoder.decode(preamble), "");
+  assert.strictEqual(textDecoder.decode(epilogue), "");
 });
 
 test("getBoundary", () => {
