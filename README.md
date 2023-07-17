@@ -37,7 +37,7 @@ async function getMultipartData() {
 
 ### parseMultipartResponse
 
-▸ **parseMultipartResponse**(`response`, `userOptions?`): `Promise`<[`ParseResult`](interfaces/ParseResult.md)\>
+▸ **parseMultipartResponse**(`response`, `userOptions?`): `Promise`<[`ParseResult`](#parseresult)\>
 
 Parse a multipart Response object into separate Response objects
 
