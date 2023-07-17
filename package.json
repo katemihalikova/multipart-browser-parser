@@ -1,0 +1,31 @@
+{
+  "name": "multipart-browser-parser",
+  "version": "1.0.0",
+  "description": "Parse multipart response in browser",
+  "keywords": ["multipart", "response", "fetch", "browser"],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run compile",
+    "compile": "rm -r dist && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
+    "test": "ts-node -P tsconfig.test.json test/test.ts"
+  },
+  "author": "Kate Miháliková <kate@katemihalikova.cz>",
+  "repository": "github:katemihalikova/multipart-browser-parser",
+  "bugs": "https://github.com/katemihalikova/multipart-browser-parser/issues",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/katemihalikova"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/baretest": "^2.0.0",
+    "@types/node": "^20.4.2",
+    "baretest": "^2.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "~5.1.6"
+  }
+}

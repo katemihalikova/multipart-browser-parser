@@ -1,0 +1,13 @@
+preamble
+--Uz6QGCGb3RCFt6GVSHML5O0iA2DUUq2d033
+Content-Type: text/plain
+Content-Disposition: attachment; filename=Document_1.txt
+
+Hello everyone!💜
+--Uz6QGCGb3RCFt6GVSHML5O0iA2DUUq2d033
+Content-Type: application/json
+Content-Disposition: attachment; filename=Document_2.json
+
+{"this": ["is", {"a": "test"}]}
+--Uz6QGCGb3RCFt6GVSHML5O0iA2DUUq2d033--
+epilogue
