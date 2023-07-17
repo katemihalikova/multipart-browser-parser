@@ -23,7 +23,7 @@ import {parseMultipartResponse} from "multipart-browser-parser";
 
 async function getMultipartData() {
   let response = await fetch("/api/multipart");
-  let {bodyParts} = parseMultipartResponse(response);
+  let {bodyParts} = await parseMultipartResponse(response);
 
   let firstPartAsText = await bodyParts[0].text();
   let secondPartAsJson = await bodyParts[1].json();
